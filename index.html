@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow — To-Do List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>My Tasks</h1>
+        <p>Simple Google Tasks-style planner</p>
+      </header>
+
+      <section class="task-entry" aria-label="Add a new task">
+        <input
+          id="taskInput"
+          type="text"
+          placeholder="Add a task"
+          maxlength="120"
+          aria-label="Task title"
+        />
+        <input id="taskDate" type="date" aria-label="Due date" />
+        <button id="addTaskBtn" type="button">Add</button>
+      </section>
+
+      <section class="toolbar" aria-label="Task filters">
+        <button class="filter-btn active" data-filter="all" type="button">All</button>
+        <button class="filter-btn" data-filter="active" type="button">Active</button>
+        <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+      </section>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <footer class="app-footer">
+        <span id="taskCount">0 tasks left</span>
+        <button id="clearCompletedBtn" type="button">Clear completed</button>
+      </footer>
+    </main>
+
+    <template id="taskItemTemplate">
+      <li class="task-item">
+        <label class="task-main">
+          <input class="task-toggle" type="checkbox" />
+          <span class="task-title"></span>
+        </label>
+        <div class="task-meta">
+          <span class="task-date"></span>
+          <button class="delete-btn" type="button" aria-label="Delete task">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
